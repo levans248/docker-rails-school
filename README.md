@@ -25,7 +25,7 @@ brew update
 brew install postgres
 ```
 
-- fork repo and clone
+- clone repo
 
 - bundle install
 
