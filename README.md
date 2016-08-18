@@ -1,24 +1,56 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Barebones app example that we will be using for rails school on dockerizing
+a rails web application. This app will be using Rails 5, redis, sidekiq, and
+postgres. Instructions on getting the app working are provided below.
 
-Things you may want to cover:
+To get app working:
 
-* Ruby version
+- install (sidekiq)[https://github.com/mperham/sidekiq]
 
-* System dependencies
+- install redis (if you are using homebrew)
+```brew install redis```
 
-* Configuration
+- install rails 5
+```gem install rails```
 
-* Database creation
+- install postgres
+```brew update```
+```brew install postgres```
 
-* Database initialization
+- fork repo and clone
 
-* How to run the test suite
+- bundle install
 
-* Services (job queues, cache servers, search engines, etc.)
+- create db and load schema
+```rails db:create```
+```rails db:schema:load```
 
-* Deployment instructions
+- add .env to gitignore (this file will also be used by docker-compose)
 
-* ...
+- commit changes to gitignore
+
+- create .env file in app root directory
+
+- in .env file add the following environemental variables:
+```GMAIL_USER_NAME=YOUR_GMAIL_USER_NAME
+GMAIL_PASSWORD=YOUR_GMAIL_PASSWORD```
+
+If you would like to use a different email provider you will need to change the
+action mailer configuration in /config/environments/development
+
+- start rails server
+```rails server```
+
+- start redis
+```redis-server```
+
+- start sidekiq
+```bundle exec sidekiq```
+
+- open localhost:3000 in browser
+
+- add email to subscription list and send test email to be sure that everything
+is working
+
+
